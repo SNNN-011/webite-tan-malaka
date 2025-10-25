@@ -1,0 +1,340 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === BACKGROUND UTAMA === */
+.bg-image {
+  position: absolute;
+  inset: 0;
+  background: url("aset_gambar/Soerat Kabar Bahasa Melaijoe th_1856.jpg")
+    center/cover no-repeat;
+  filter: blur(4px);
+  opacity: 0.45;
+  background-position: center 30%;
+  z-index: -1;
+}
+
+/* === NAVBAR GLOBAL === */
+nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 30px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  padding: 10px 30px;
+  border-radius: 40px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+nav a {
+  position: relative;
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+/* Garis animasi di bawah teks */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #d06f0d, #db08a7b5);
+  border-radius: 5px;
+  transition: width 0.3s;
+}
+
+nav a:hover {
+  color: #a0660f;
+  transform: translateY(-2px);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Halaman aktif (nyala + garis tetap) */
+nav a.active {
+  background: linear-gradient(90deg, #b12911, #ff0058);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+nav a.active::after {
+  width: 100%;
+}
+
+/* === KONTEN UTAMA === */
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  backdrop-filter: blur(10px);
+  margin-top: 100px;
+}
+
+.left {
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.left .year {
+  font-size: 12px;
+  color: #555;
+  letter-spacing: 1px;
+}
+
+.left h1 {
+  font-family: "Times New Roman", serif;
+  font-size: 58px;
+  color: #111;
+  line-height: 1.1;
+  margin: 10px 0;
+}
+
+/* === NAMA LENGKAP (TAMBAHAN) === */
+h3.fullname {
+  font-size: 18px;
+  font-weight: 400;
+  color: #444;
+  margin-top: -5px;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.left .role {
+  font-size: 15px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* === DESKRIPSI PAHLAWAN === */
+.description {
+  font-size: 14px;
+  color: #222;
+  margin-top: 20px;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* === TOMBOL === */
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn {
+  background: rgb(214, 168, 18);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: black;
+  color: rgb(214, 153, 56);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(182,123,47,0.5);
+
+}
+
+.link {
+  color: #7a00ff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* === FOTO KANAN === */
+.right {
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.right img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Animasi lembut masuk */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer-nav {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-nav .btn {
+  background: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer-nav .btn:hover {
+  background: #000;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+
+  .left,
+  .right {
+    padding: 30px;
+  }
+
+  .left h1 {
+    font-size: 40px;
+  }
+
+  h3.fullname {
+    font-size: 16px;
+  }
+
+  nav {
+    gap: 20px;
+    padding: 8px 20px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+}
+.description {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1.2s ease forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.left > * {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: slideFade 0.8s ease forwards;
+}
+
+.left > *:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.left > *:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.left > *:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.left > *:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.left > *:nth-child(5) {
+  animation-delay: 1s;
+}
+
+@keyframes slideFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("/aset_gambar/f74892d10ccfd15a49c2ca71f9d36bd4.jpg") repeat;
+  opacity: 0.15;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+/* === BODY UTAMA === */
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #b67b2f, #d8b87d);
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Lapisan efek lembut di atas background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("/aset_gambar/f74892d10ccfd15a49c2ca71f9d36bd4.jpg") repeat;
+  opacity: 0.08; /* turunkan supaya nggak terlalu mengubah warna */
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  z-index: 1;
+}

@@ -1,0 +1,252 @@
+/*
+================================
+1. Reset dan Gaya Dasar (Tidak Berubah Signifikan)
+================================
+*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Georgia', serif; /* Ubah font menjadi lebih klasik */
+    line-height: 1.7; /* Tingkatkan line height agar lebih mudah dibaca */
+    background-color: #fcfcfc; /* Putih bersih */
+    color: #333;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    font-family: 'Arial', sans-serif; /* Font sans-serif untuk judul */
+    color: #660000; /* Merah tua yang lebih tegas */
+    margin-bottom: 15px;
+}
+
+.main-title {
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #660000; /* Garis bawah tebal */
+    margin-bottom: 30px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/*
+================================
+2. Header dan Navigasi (Dibuat lebih kontras)
+================================
+*/
+header {
+    background-color: #111111; /* Hitam yang lebih dalam */
+    color: #fff;
+    padding: 25px 0; /* Padding lebih besar */
+    text-align: center;
+    border-bottom: 5px solid #660000; /* Garis pemisah merah */
+}
+
+header h1 {
+    color: #fff;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+nav a:hover, nav a.active {
+    background-color: #660000;
+    color: #fff;
+    border-color: #fff;
+    transform: translateY(-2px); /* Efek melayang */
+}
+
+/*
+================================
+3. Layout Halaman Beranda (Tidak Berubah Signifikan)
+================================
+*/
+.home-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    padding-top: 40px;
+}
+/* ... (Gaya .intro-text dan .hero-image tetap sama) ... */
+.intro-text { order: 2; }
+.hero-image { order: 1; width: 100%; max-width: 400px; text-align: center;}
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 5px solid #660000; /* Bingkai lebih tebal */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Bayangan */
+}
+
+.button-link {
+    display: inline-block;
+    background-color: #660000;
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.button-link:hover {
+    background-color: #800000;
+}
+
+
+/*
+================================
+4. Gaya Khusus Halaman Biografi (Tambahan Gambar)
+================================
+*/
+/* ... (Kode .content-timeline dan .timeline-card sebelumnya tetap) ... */
+
+.card-image-wrapper {
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 3px solid #660000; /* Bingkai pada gambar */
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Penyesuaian tata letak gambar di mobile */
+@media (max-width: 768px) {
+    .card-image-wrapper {
+        /* Gambar akan mengisi penuh lebar kartu di mobile */
+        max-height: 200px; 
+    }
+}
+
+/* Penyesuaian tata letak gambar di desktop/tablet (agar gambar tidak terlalu besar) */
+@media (min-width: 769px) {
+    .timeline-card {
+        /* Menggunakan flexbox untuk mengatur layout internal (gambar dan teks) */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-image-wrapper {
+        /* Atur gambar agar terpisah dari teks dan memiliki tinggi maksimum */
+        max-height: 250px; 
+    }
+    
+    /* Gunakan properti float di desktop untuk membuat gambar menyatu dengan teks */
+    /* Ini akan membuat tata letak lebih bervariasi dan menarik */
+    
+    .card-image-wrapper.right {
+        float: right;
+        width: 40%;
+        margin-left: 20px;
+        margin-bottom: 5px;
+    }
+    
+    .card-image-wrapper.left {
+        float: left;
+        width: 40%;
+        margin-right: 20px;
+        margin-bottom: 5px;
+    }
+    
+    /* Clear float setelah setiap kartu */
+    .timeline-card::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+
+/*
+================================
+5. Footer
+================================
+*/
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: #ccc;
+    font-size: 0.9em;
+    margin-top: 40px;
+    border-top: 3px solid #660000;
+}
+
+/*
+================================
+6. Media Query (Responsif untuk Tablet dan Desktop)
+================================
+*/
+
+@media (max-width: 768px) {
+    /* Penyesuaian Navigasi untuk Mobile */
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+    nav a {
+        display: block;
+    }
+}
+
+
+@media (min-width: 769px) {
+    /* Layout Horizontal untuk Desktop dan Tablet */
+    
+    /* Layout 2 Kolom untuk Halaman Biografi/Pemikiran */
+    .content-timeline {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 kolom untuk kartu */
+        gap: 30px;
+        padding: 0; /* Hapus padding timeline di desktop */
+    }
+
+    /* Layout Halaman Beranda */
+    .home-layout {
+        flex-direction: row;
+        align-items: flex-start; /* Sejajarkan konten ke atas */
+        text-align: left;
+    }
+
+    .intro-text {
+        order: 1; 
+        flex: 2; 
+    }
+
+    .hero-image {
+        order: 2; 
+        flex: 1; 
+    }
+}
